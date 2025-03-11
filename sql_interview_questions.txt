@@ -1,3 +1,5 @@
+DIFFERENCE BETWEEN QUESTIONS 
+-----------------------------
 1. SQL VS MYSQL
 2. SQL VS PLSQL
 3. SQL VS NOSQL 
@@ -10,3 +12,35 @@
 10.DELETE VS TRUNCATE VS DROP
 11. UNION VS UNION ALL
 12. SUM() VS COUNT()
+13.RANK() VS DENSE_RANK()
+
+THEORY SQL QUESTIONS :
+---------------------------
+1.What is a database?
+2.What are the main types of SQL commands?
+3.What is a primary key?
+4.What is a foreign key?
+5.What is the purpose of the DEFAULT constraint?
+6.What is normalization in databases?
+7.What is a view in SQL?
+8.What is the purpose of the UNIQUE constraint?
+9.What are the different types of joins in SQL?
+10.What is GROUP BY clause?
+11.What are aggregate functions in SQL?
+12.What is a subquery?
+13.What are indexes, and why are they used?
+14.What is the purpose of the SQL ORDER BY clause?
+15.What is the purpose of the ALTER command in SQL?
+16.What is functional dependency and its types ?
+17.What is a UNION operation, and how is it used?
+18.What are common table expressions (CTEs) in SQL
+19.What is a sequence in SQL?
+20. How can you handle duplicates in a query without using DISTINCT?
+21.What is a correlated subquery?
+22.What are the ACID properties of a transaction?
+
+
+
+
+
+
