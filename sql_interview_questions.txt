@@ -38,6 +38,8 @@ THEORY SQL QUESTIONS :
 20. How can you handle duplicates in a query without using DISTINCT?
 21.What is a correlated subquery?
 22.What are the ACID properties of a transaction?
+23.What is a stored procedure?
+24.What is a stored function ?
 
 
 
