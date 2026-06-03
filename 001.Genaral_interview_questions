@@ -40,7 +40,9 @@ THEORY SQL QUESTIONS :
 22.What are the ACID properties of a transaction?
 23.What is a stored procedure?
 24.What is a stored function ?
-
+25.What is a trigger ?
+26.what is cursor ?
+27.what is exception and types ?
 
 
 
