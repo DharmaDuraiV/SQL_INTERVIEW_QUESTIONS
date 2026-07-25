@@ -1,0 +1,52 @@
+# SQL Interview Questions – 2026
+
+1. Write a SQL query to find the second highest salary from the Employees table.
+2. Write a SQL query to find the duplicate records in a table.
+3. Write a SQL query to remove duplicate records from a table.
+4. Write a SQL query to find the top 5 highest salaries.
+5. Write a SQL query to find the Nth highest salary.
+6. Write a SQL query to fetch departments and their total salary expenditure.
+7. Write a SQL query to find employees who joined in the last 6 months.
+8. Write a SQL query to find employees who are not in any department.
+9. Write a SQL query to find the total number of employees in each department.
+10. Write a SQL query to pivot data to show department-wise employee count.
+11. Write a SQL query to unpivot data from a table.
+12. Write a SQL query to find month-over-month revenue growth.
+13. Write a SQL query to find the running total of sales by date.
+14. Write a SQL query to find gaps in a sequence of numbers.
+15. Write a SQL query to find the longest streak of consecutive login days for a user.
+16. Write a SQL query to find the first login date of each user.
+17. Write a SQL query to find the last purchase of each customer.
+18. Write a SQL query to find customers who bought in all months.
+19. Write a SQL query to find products that were never ordered.
+20. Write a SQL query to find employees earning more than the average salary.
+21. Write a SQL query to find employees earning more than their department average salary.
+22. Write a SQL query to rank employees within each department by salary.
+23. Write a SQL query to find the top 3 salaries in each department.
+24. Write a SQL query to find common records between two tables.
+25. Write a SQL query to find records that are in one table but not in another.
+26. Write a SQL query to split a full name into first name and last name.
+27. Write a SQL query to concatenate first name and last name into a full name.
+28. Write a SQL query to extract year, month, and day from a date column.
+29. Write a SQL query to calculate age from date of birth.
+30. Write a SQL query to find the number of working days in a month.
+31. Write a SQL query to find employees with the same salary.
+32. Write a SQL query to find the highest paid employee in each department.
+33. Write a SQL query to find all managers and their reporting employees.
+34. Write a SQL query to reverse a string.
+35. Write a SQL query to find the frequency of each word in a text column.
+36. Write a SQL query to find rows where a column is `NULL`.
+37. Write a SQL query to replace `NULL` values with a default value.
+38. Write a SQL query to trim spaces from the beginning and end of a string.
+39. Write a SQL query to find the most frequently ordered product.
+40. Write a SQL query to calculate year-over-year growth.
+41. Write a SQL query to find the moving average of sales (3-day window).
+42. Write a SQL query to find the difference between two dates in days.
+43. Write a SQL query to find overlapping date ranges.
+44. Write a SQL query to find the second most frequent salary.
+45. Write a SQL query to find employees who earn between 10k and 20k.
+46. Write a SQL query to delete records having duplicate values based on one column.
+47. Write a SQL query to insert only distinct records from another table.
+48. Write a SQL query to update salary by 10% for a specific department.
+49. Write a SQL query to find employee names in UPPERCASE and lowercase.
+50. Write a SQL query to generate a series of dates between two given dates.
