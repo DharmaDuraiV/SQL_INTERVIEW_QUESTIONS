@@ -1,0 +1,246 @@
+# ORACLE SQL INTERVIEW QUESTIONS – MCQ
+
+## 1. What will be the output of the following query in Oracle?
+
+```sql
+WITH Numbers AS (
+    SELECT 1 AS n FROM DUAL
+    UNION ALL
+    SELECT 2 FROM DUAL
+    UNION ALL
+    SELECT 3 FROM DUAL
+    UNION ALL
+    SELECT 4 FROM DUAL
+)
+SELECT COUNT(*) AS total
+FROM Numbers A
+JOIN Numbers B ON A.n < B.n;
+```
+
+A. 3
+B. 4
+C. 6
+D. 12
+
+## 2. No GROUP BY – Will HAVING still work?
+
+```sql
+SELECT COUNT(*) AS Total
+FROM Employees
+HAVING COUNT(*) > 100;
+```
+
+Employees table contains 10 rows. What is the output?
+
+A. 0
+B. 10
+C. Empty result set
+D. Query fails because HAVING requires GROUP BY
+
+## 3. Two employees have the same salary. You use ROW_NUMBER() to rank them by salary. After deployment, their row numbers switch. Why can this happen, and how would you make the result deterministic?
+
+A. ROW_NUMBER() always generates random numbers.
+B. The ORDER BY column contains duplicate values; add a unique tie-breaker column.
+C. PARTITION BY must always contain the employee ID.
+D. ROW_NUMBER() does not support salary columns.
+
+## 4. Find the error in the following Oracle SQL query.
+
+```sql
+SELECT order_id,
+       quantity * price AS total
+FROM order_items
+WHERE total > 1000;
+```
+
+A. Multiplication is not allowed in SELECT.
+B. Column aliases cannot be referenced in the WHERE clause at the same query level.
+C. FROM clause must come after WHERE.
+D. The query is completely valid in Oracle.
+
+## 5. Find the issue in the following SQL query.
+
+```sql
+SELECT c.customer_id,
+       SUM(o.amount) AS total_spent
+FROM customers c
+JOIN orders o
+    ON c.customer_id = o.customer_id
+JOIN order_items oi
+    ON o.order_id = oi.order_id
+GROUP BY c.customer_id;
+```
+
+Assume each order can contain multiple order items. What is the most likely issue?
+
+A. GROUP BY cannot be used with SUM().
+B. Joining order_items can multiply order-level amounts and inflate SUM(o.amount).
+C. INNER JOIN does not support multiple tables.
+D. SUM() cannot work with decimal values.
+
+## 6. A query uses an indexed date column but still performs a full table scan. Which of the following could explain this?
+
+A. Using a function on the indexed date column in the WHERE clause.
+B. Implicit data type conversion.
+C. The query returns a large percentage of the table's rows.
+D. All of the above.
+
+## 7. How many rows will be returned by the following Oracle SQL query?
+
+```sql
+SELECT DISTINCT Val
+FROM (
+    SELECT 1 AS Val FROM DUAL
+    UNION ALL
+    SELECT 1 FROM DUAL
+    UNION ALL
+    SELECT NULL FROM DUAL
+    UNION ALL
+    SELECT NULL FROM DUAL
+);
+```
+
+A. 1
+B. 2
+C. 3
+D. 4
+
+## 8. What will the following query return?
+
+```sql
+SELECT Name
+FROM Employees
+WHERE DeptID NOT IN (2, NULL);
+```
+
+Assume Employees has DeptID values 1, 2 and 3, and none of the DeptID values is NULL.
+
+A. Employees in DeptID 1 and 3
+B. Empty result set
+C. Query fails with an error
+D. All employees
+
+## 9. What is the output of the following Oracle SQL query?
+
+```sql
+SELECT 100 AS Total
+FROM Employees
+HAVING COUNT(*) > 5;
+```
+
+Assume the Employees table contains 10 rows.
+
+A. 100 (one row)
+B. 100 (ten rows)
+C. Empty result set
+D. Query fails
+
+## 10. A customer's total amount appears twice in your report. The Customers table has no duplicate rows, and nobody changed the data. What is the most likely mistake in the query?
+
+A. Using DISTINCT in the SELECT statement.
+B. Joining a one-to-many table without handling row multiplication correctly.
+C. Using ORDER BY with customer_id.
+D. Using a primary key in the Customers table.
+
+## 11. Find the error in the following Oracle SQL query.
+
+```sql
+SELECT employee_id,
+       ROW_NUMBER() OVER (
+           PARTITION BY department_id
+           ORDER BY hire_date
+       ) AS rn
+FROM employees
+WHERE rn <= 3;
+```
+
+A. ROW_NUMBER() cannot be used with PARTITION BY.
+B. Window function aliases cannot be referenced in the WHERE clause at the same query level.
+C. ORDER BY cannot be used inside OVER().
+D. ROW_NUMBER() requires GROUP BY.
+
+## 12. Find the error in the following Oracle SQL statement.
+
+```sql
+DELETE *
+FROM customers
+WHERE customer_id = 10;
+```
+
+A. DELETE does not support WHERE conditions.
+B. DELETE * is invalid syntax in Oracle.
+C. FROM cannot be used with DELETE.
+D. customer_id cannot be used in DELETE.
+
+## 13. What happens when the following Oracle SQL query is executed?
+
+```sql
+SELECT
+    Salary,
+    CASE
+        WHEN Salary > 50000 THEN 'High'
+        ELSE 'Low'
+    END AS SalaryBand
+FROM Employees
+WHERE SalaryBand = 'High';
+```
+
+A. All employees with Salary greater than 50000.
+B. All employees with Salary less than or equal to 50000.
+C. Query fails with an error because the SELECT alias is not available in WHERE.
+D. Empty result set.
+
+## 14. What does MaxSalary represent in the following query?
+
+```sql
+SELECT
+    Employee,
+    Department,
+    Salary,
+    MAX(Salary) OVER (
+        PARTITION BY Department
+    ) AS MaxSalary
+FROM Employees
+WHERE Salary < 50000;
+```
+
+A. Maximum salary of the entire Employees table.
+B. Maximum salary of each department considering only rows where Salary is less than 50000.
+C. Maximum salary of each department considering all employees, regardless of the WHERE condition.
+D. Minimum salary of each department.
+
+## 15. You accidentally executed a DELETE query in production without a WHERE clause. Around 10 million rows were deleted in 3 seconds. How would you recover the data in Oracle?
+
+A. Immediately execute ROLLBACK, regardless of transaction status.
+B. Restore using RMAN backups and apply archived redo logs to recover to the required point in time.
+C. Execute TRUNCATE TABLE to restore the deleted records.
+D. Restart the Oracle database instance.
+
+## 16. Consider the following table named PRODUCT_SALES.
+
+PRODUCT          CATEGORY
+Laptop           Electronics
+Chair            Furniture
+Mobile           Electronics
+Table            Furniture
+Book             Stationery
+
+Write an Oracle SQL query to transform the data into the following expected output.
+
+ELECTRONICS      FURNITURE      STATIONERY
+Laptop           Table          Book
+Mobile           Chair          NULL
+
+Which Oracle SQL feature is most suitable for this transformation?
+
+A. UNPIVOT
+B. PIVOT
+C. GROUP BY
+D. CROSS JOIN
+
+## 17. Your database has 1 billion rows. A query that took 20 milliseconds yesterday now takes 15 seconds. The SQL query has not changed. What could be the reason?
+
+A. Statistics became outdated, causing a poor execution plan.
+B. Index fragmentation or missing indexes.
+C. Bind variable peeking or execution plan regression.
+D. All of the above.
